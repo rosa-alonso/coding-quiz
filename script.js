@@ -141,7 +141,7 @@ function saveScores (event) {
     event.preventDefault()
     const scoreObject = {initials: initials.value, score: score}
     console.log(scoreObject)
-    renderscoreObject()
+    // renderscoreObject()
     let scoreboardArray= ("")
     scoreboardArray.push("")
     // figure out how to store multiple scores in an array
