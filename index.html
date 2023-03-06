@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Coding Quiz</title>
+</head>
+<header>
+    <div id="timer">Time Remaining: </div>
+    <div id="high-scores">View High Scores</div>
+</header>
+<body>
+    <div class="container">
+        <div class="score">
+            <span id="user-score">0</span>
+            <span>/</span>
+            <span id="total-score">0</span>
+        </div>
+        <div id="question-container" class="hide">
+            <div id="questions">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button id="button-a" class="btn">Answer 1</button>
+                <button id="button-b" class="btn">Answer 2</button>
+                <button id="button-c" class="btn">Answer 3</button>
+                <button id="button-d" class="btn">Answer 4</button>
+            </div>
+        </div>  
+        <div id="result-div" style="display:none;">
+            <hr>
+            <p id="result-text"></p>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start Quiz</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+            
+        </div>
+        <div id="score-board" class="hide">
+            <label>Input your initials</label>
+            <input id="score-input" type="text" maxlength="3">
+            <button id="submit-btn" class ="submit-btn">Submit</button>
+        </div>    
+ 
+</body>
+</html>
+
