@@ -11,6 +11,7 @@ const totalScore = document.getElementById('total-score')
 const questionContainer = document.getElementById('question-container')
 const scoreboard= document.getElementById('score-board')
 const initials = document.getElementById("score-input")
+const highScores = document.getElementById('high-scores-list')
 startButton.addEventListener('click', startQuiz)
 // nextButton.addEventListener('click', next)
 answerButtons.addEventListener('click', (e)=> answerChoice(e))
@@ -20,7 +21,7 @@ submitButton.addEventListener('click', saveScores)
 // answerButtons.addEventListener('click', function(e) {
 //     return answerChoice(e)
 // })
-
+let intervalId;
 
 let currentQuestion = 0
 let score = 0
@@ -70,8 +71,8 @@ function startQuiz() {
     questionContainer.style.flexDirection="column"
     currentQuestion = 0
     displayQuestion()
-    time = questions.length * 10
-    intervalID = setInterval(countdown, 1000)
+    time = 30
+    intervalId = setInterval(countdown, 1000)
     displayTime()
     startButton.classList.add('hide')
     totalScore.innerHTML = questions.length
@@ -82,6 +83,7 @@ function countdown() {
     time--;
     displayTime();
     if (time < 1) {
+        clearInterval(intervalId)
       endQuiz();
     }
 }
@@ -135,6 +137,7 @@ function endQuiz () {
     scoreboard.style.display="flex"
     scoreboard.style.flexDirection="column"
     questionContainer.style.display="none"
+    clearInterval(intervalId)
 }
 
 function saveScores (event) {
@@ -142,8 +145,9 @@ function saveScores (event) {
     const scoreObject = {initials: initials.value, score: score}
     console.log(scoreObject)
     // renderscoreObject()
-    let scoreboardArray= ("")
-    scoreboardArray.push("")
+    let scoreboardArray= []
+    scoreboardArray.push(scoreObject)
+    console.log('string')
     // figure out how to store multiple scores in an array
     // store those scores in local storage as an aray
     // get those scores out of local storage
@@ -151,4 +155,8 @@ function saveScores (event) {
     // save that new array in local storage under the same key,
     // localstorage.setItem("key", value)
     localStorage.setItem("scores", JSON.stringify(scoreObject))
+}
+
+function highScores () {
+    
 }
